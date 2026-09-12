@@ -1,57 +1,45 @@
----
-layout: default
----
-<section class="welcome">
-  <div>
-    <span class="label">THE MARI DAILY · EVERYDAY EDITION</span>
-    <h2>Good morning, internet ♡</h2>
-    <p>A tiny daily magazine for things worth reading, watching, thinking about, laughing at, and occasionally obsessing over.</p>
-  </div>
-  <div class="star">✦</div>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>THE MARI DAILY ♡</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero"><div class="hero-inner">
+<img class="dino" src="dino.png" alt="Cute pink dinosaur mascot">
+<div>
+<p class="eyebrow">THE INTERNET DIARY · EVERYDAY EDITION</p>
+<h1>THE MARI DAILY</h1>
+<p class="tagline">books · poems · shows · people · memes · my little thoughts ♡</p>
+</div></div></header>
+
+<nav class="nav">
+<a href="#home">HOME</a><a href="#books">BOOKS</a><a href="#poetry">POETRY</a>
+<a href="#tv">TV</a><a href="#people">PEOPLE</a><a href="#writing">MY WRITING</a><a href="#memes">MEMES</a>
+</nav>
+
+<main id="home" class="page">
+<section class="welcome card"><span class="sticker">♡ hello!</span>
+<h2>Good morning, internet ☁️</h2>
+<p>Welcome to my tiny corner of the internet — a cute little daily magazine for everything I am reading, watching, loving, laughing at, and writing.</p>
 </section>
 
-<section class="latest">
-  <div class="section-head">
-    <span class="label">LATEST</span>
-    <h2>Fresh from my little corner</h2>
-  </div>
-  <div class="post-grid">
-    {% assign posts = site.posts | sort: "date" | reverse %}
-    {% for post in posts limit: 9 %}
-      <article class="card">
-        {% if post.cover %}
-          <img class="cover" src="{{ post.cover | relative_url }}" alt="">
-        {% else %}
-          <div class="fake-photo">{{ post.category | upcase }}</div>
-        {% endif %}
-        <span class="label">{{ post.category }} · {{ post.date | date: "%b %d, %Y" }}</span>
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        {% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}
-        <a class="read" href="{{ post.url | relative_url }}">READ MORE →</a>
-      </article>
-    {% endfor %}
-  </div>
+<section class="grid">
+<article id="books" class="card feature"><div class="label">BOOKS 📚</div><h2>Things I'm reading</h2><p>Book notes, reviews, favorite quotes, characters I can't stop thinking about, and tiny literary obsessions.</p><a class="read" href="#books">read the book corner →</a></article>
+<article id="poetry" class="card"><div class="label">POETRY 🌷</div><h2>Poems & verses</h2><p>Poetry I love, lines I save, and little thoughts about poems.</p></article>
+<article id="tv" class="card"><div class="label">TV 📺</div><h2>Currently watching</h2><p>Shows, episodes, characters, theories, and all the “one more episode” moments.</p></article>
+<article id="people" class="card"><div class="label">PEOPLE ✨</div><h2>People on my mind</h2><p>Actors, artists, celebrities, creators, and interesting people from around the internet.</p></article>
+<article id="writing" class="card feature"><div class="label">MY WRITING ✍🏻</div><h2>Little things I write</h2><p>Personal writing, mini essays, diary-ish thoughts, stories, and whatever I feel like putting into words.</p></article>
+<article id="memes" class="card meme"><div class="label">MEMES 💌</div><h2>Important internet business</h2><p>Memes that deserve to be archived for future generations.</p>
+<div class="fake-meme">me opening one more tab<br><strong>THE MARI DAILY</strong><br>at 2:17 AM</div></article>
 </section>
 
-<section class="writing">
-  <span class="label">FROM MY DESK</span>
-  <h2>Poems, fragments & things I wrote at an unreasonable hour</h2>
-  <p>Your own writing can live here alongside the daily bits.</p>
-  <a class="button" href="{{ '/category/my-writing/' | relative_url }}">ENTER THE WRITING ROOM ✿</a>
+<section class="latest"><div class="section-title"><span>✿</span><h2>Latest little notes</h2><span>✿</span></div>
+<article class="post card"><div class="date">SEPTEMBER 12, 2026 · WELCOME</div><h2>Welcome to The Mari Daily ♡</h2><p>This is the first page of my tiny online magazine. More books, poems, shows, memes, people, and personal writing are coming soon.</p></article>
 </section>
+</main>
 
-<section class="memes">
-  <div class="section-title">
-    <span class="label">MEME CORNER</span>
-    <h2>Unfortunately, this is important.</h2>
-  </div>
-  <div class="meme-grid">
-    {% assign memes = site.posts | where: "category", "Memes" | sort: "date" | reverse %}
-    {% for post in memes limit: 3 %}
-      <a class="meme" href="{{ post.url | relative_url }}">
-        {% if post.cover %}<img src="{{ post.cover | relative_url }}" alt="">{% endif %}
-        <strong>{{ post.title }}</strong>
-      </a>
-    {% endfor %}
-  </div>
-</section>
+<footer><p>made with love, pink pixels & a tiny dinosaur ♡</p><p>© THE MARI DAILY</p></footer>
+</body></html>
