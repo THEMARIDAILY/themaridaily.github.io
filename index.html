@@ -1,15 +1,15 @@
----
-layout: default
----
-<p class="eyebrow">THE MARI DAILY · SECTION</p>
-<h1 style="font-family:'Playfair Display',serif;font-size:clamp(44px,7vw,72px);color:#5c3042;margin:8px 0 30px">TV</h1>
-<div class="cards">
-{% assign items = site.collections.posts.docs | where: "published", true | where: "category", "Tv" %}
-{% assign items = items | sort: "date" | reverse %}
-{% for post in items %}
-<article class="card">
-{% if post.cover %}<img src="{{ post.cover | relative_url }}" alt="{{ post.title }}">{% else %}<div class="placeholder">♡</div>{% endif %}
-<div class="card-body"><span class="tag">{{ post.category }}</span><h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>{% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}<a class="readmore" href="{{ post.url | relative_url }}">READ MORE →</a></div>
-</article>
-{% endfor %}
-</div>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mari Daily</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="site-header"><div class="topline">THE MARI DAILY · A TINY INTERNET MAGAZINE ♡</div>
+<div class="brand-row"><a class="brand" href="/">THE MARI DAILY</a><img class="dino" src="/dino.png" alt="Cute pink dinosaur"></div>
+<nav class="nav"><a href="/">HOME</a><a href="/sections/books/">BOOKS</a><a href="/sections/poetry/">POETRY</a><a href="/sections/tv/">TV</a><a href="/sections/people/">PEOPLE</a><a href="/sections/my-writing/">MY WRITING</a><a href="/sections/memes/">MEMES</a></nav></header>
+<main class="wrap"><section class="hero"><div><p class="eyebrow">WELCOME TO MY LITTLE CORNER OF THE INTERNET</p><h1>Books, poems,<br>TV & little things.</h1><p class="hero-copy">A personal daily magazine for things I love, things I write, and things that make me say “wait, this is important.”</p><a class="button" href="#latest">READ THE LATEST →</a></div><div class="hero-dino"><img src="/dino.png" alt="Pink dinosaur"></div></section>
+<div class="section-title" id="latest"><span>LATEST FROM THE MARI DAILY</span><span>♡</span></div>
+<div class="cards"><article class="card"><div class="placeholder">♡</div><div class="card-body"><span class="tag">MY WRITING</span><h2>Welcome to The Mari Daily ♡</h2><p>Your tiny corner of the internet for books, poems, TV, people, writing and memes.</p><a class="readmore" href="#">READ MORE →</a></div></article><article class="card"><div class="placeholder">🦕</div><div class="card-body"><span class="tag">BOOKS</span><h2>Little things worth reading</h2><p>Stories, characters and books that deserve a spot here.</p><a class="readmore" href="/sections/books/">EXPLORE →</a></div></article><article class="card"><div class="placeholder">✿</div><div class="card-body"><span class="tag">MEMES</span><h2>Important internet nonsense</h2><p>The silly corner. Obviously essential.</p><a class="readmore" href="/sections/memes/">EXPLORE →</a></div></article></div></main>
+<footer>made with pink pixels, tiny thoughts & one dinosaur ♡</footer>
+</body></html>
