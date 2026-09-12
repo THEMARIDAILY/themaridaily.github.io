@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<article class="single">
+  {% if page.cover %}<img class="hero-image" src="{{ page.cover | relative_url }}" alt="">{% endif %}
+  <span class="label">{{ page.category }} · {{ page.date | date: "%B %d, %Y" }}</span>
+  <h2>{{ page.title }}</h2>
+  {% if page.excerpt %}<p class="lead">{{ page.excerpt }}</p>{% endif %}
+  <div class="post-body">{{ content }}</div>
+  <a class="button" href="{{ '/' | relative_url }}">← BACK HOME</a>
+</article>

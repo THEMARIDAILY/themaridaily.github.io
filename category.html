@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<section class="category-page">
+  <span class="label">{{ page.category }}</span>
+  <h2>{{ page.title }}</h2>
+  <div class="post-grid">
+    {% assign posts = site.posts | where: "category", page.category | sort: "date" | reverse %}
+    {% for post in posts %}
+      <article class="card">
+        {% if post.cover %}<img class="cover" src="{{ post.cover | relative_url }}" alt="">{% else %}<div class="fake-photo">{{ post.category | upcase }}</div>{% endif %}
+        <span class="label">{{ post.date | date: "%b %d, %Y" }}</span>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        {% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}
+        <a class="read" href="{{ post.url | relative_url }}">READ MORE →</a>
+      </article>
+    {% endfor %}
+  </div>
+</section>

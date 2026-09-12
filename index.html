@@ -1,57 +1,15 @@
 ---
 layout: default
 ---
-<section class="welcome">
-  <div>
-    <span class="label">THE MARI DAILY · EVERYDAY EDITION</span>
-    <h2>Good morning, internet ♡</h2>
-    <p>A tiny daily magazine for things worth reading, watching, thinking about, laughing at, and occasionally obsessing over.</p>
-  </div>
-  <div class="star">✦</div>
-</section>
-
-<section class="latest">
-  <div class="section-head">
-    <span class="label">LATEST</span>
-    <h2>Fresh from my little corner</h2>
-  </div>
-  <div class="post-grid">
-    {% assign posts = site.posts | sort: "date" | reverse %}
-    {% for post in posts limit: 9 %}
-      <article class="card">
-        {% if post.cover %}
-          <img class="cover" src="{{ post.cover | relative_url }}" alt="">
-        {% else %}
-          <div class="fake-photo">{{ post.category | upcase }}</div>
-        {% endif %}
-        <span class="label">{{ post.category }} · {{ post.date | date: "%b %d, %Y" }}</span>
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        {% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}
-        <a class="read" href="{{ post.url | relative_url }}">READ MORE →</a>
-      </article>
-    {% endfor %}
-  </div>
-</section>
-
-<section class="writing">
-  <span class="label">FROM MY DESK</span>
-  <h2>Poems, fragments & things I wrote at an unreasonable hour</h2>
-  <p>Your own writing can live here alongside the daily bits.</p>
-  <a class="button" href="{{ '/category/my-writing/' | relative_url }}">ENTER THE WRITING ROOM ✿</a>
-</section>
-
-<section class="memes">
-  <div class="section-title">
-    <span class="label">MEME CORNER</span>
-    <h2>Unfortunately, this is important.</h2>
-  </div>
-  <div class="meme-grid">
-    {% assign memes = site.posts | where: "category", "Memes" | sort: "date" | reverse %}
-    {% for post in memes limit: 3 %}
-      <a class="meme" href="{{ post.url | relative_url }}">
-        {% if post.cover %}<img src="{{ post.cover | relative_url }}" alt="">{% endif %}
-        <strong>{{ post.title }}</strong>
-      </a>
-    {% endfor %}
-  </div>
-</section>
+<p class="eyebrow">THE MARI DAILY · SECTION</p>
+<h1 style="font-family:'Playfair Display',serif;font-size:clamp(44px,7vw,72px);color:#5c3042;margin:8px 0 30px">TV</h1>
+<div class="cards">
+{% assign items = site.collections.posts.docs | where: "published", true | where: "category", "Tv" %}
+{% assign items = items | sort: "date" | reverse %}
+{% for post in items %}
+<article class="card">
+{% if post.cover %}<img src="{{ post.cover | relative_url }}" alt="{{ post.title }}">{% else %}<div class="placeholder">♡</div>{% endif %}
+<div class="card-body"><span class="tag">{{ post.category }}</span><h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>{% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}<a class="readmore" href="{{ post.url | relative_url }}">READ MORE →</a></div>
+</article>
+{% endfor %}
+</div>

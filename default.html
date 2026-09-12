@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+<div class="paper">
+<header>
+  <img class="mascot" src="{{ '/assets/images/dino.png' | relative_url }}" alt="The Mari Daily mascot">
+  <div class="tiny">EST. 2026 · A LITTLE CORNER OF THE INTERNET</div>
+  <h1><a href="{{ '/' | relative_url }}">THE MARI DAILY</a></h1>
+  <p class="tagline">books · poems · tv · people · little things</p>
+  <nav>
+    <a href="{{ '/' | relative_url }}">HOME</a>
+    <a href="{{ '/category/books/' | relative_url }}">BOOKS</a>
+    <a href="{{ '/category/poetry/' | relative_url }}">POETRY</a>
+    <a href="{{ '/category/tv/' | relative_url }}">TV</a>
+    <a href="{{ '/category/people/' | relative_url }}">PEOPLE</a>
+    <a href="{{ '/category/my-writing/' | relative_url }}">MY WRITING</a>
+    <a href="{{ '/category/memes/' | relative_url }}">MEMES</a>
+  </nav>
+</header>
+<main>{{ content }}</main>
+<footer><span>THE MARI DAILY ♡</span><span>made with too many tabs open</span></footer>
+</div>
+</body>
+</html>
