@@ -1,0 +1,20 @@
+title: The Mari Daily
+description: Books, poems, TV, people, little things and memes.
+url: ""
+baseurl: ""
+markdown: kramdown
+collections:
+  posts:
+    output: true
+    permalink: /posts/:name/
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      category: "Books"
+      published: true
+exclude:
+  - README.md
+  - .pages.yml
